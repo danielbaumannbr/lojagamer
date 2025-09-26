@@ -1,5 +1,5 @@
 import pandas  as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 #Carregar o arquivo csv no python
 try:
     df=pd.read_csv('vendas game.csv')
@@ -19,3 +19,7 @@ print(vendas_por_jogos)
 #mostra o jogo mais vendido
 jogo_mais_vendido=vendas_por_jogos.sort_values(by='total_vendas',ascending=False).iloc[0]
 print(jogo_mais_vendido['jogo'])
+#Criação de gráfico
+plt.figure(figsize=(10,6))
+plt.bar(vendas_por_jogos['jogo'],vendas_por_jogos['total_vendas'],color="blue")
+plt.title('Total de vendas por jogo')
